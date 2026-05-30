@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Природные настройки здоровья – система без диет и запретов</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #fdfaf5; color: #2c2b2a; line-height: 1.45; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        :root { --deep-purple: #3e2a5e; --emerald: #0f7b6e; --emerald-light: #1e9b8a; --sand: #f0ebe2; }
+        h1, h2, h3 { font-weight: 600; letter-spacing: -0.02em; }
+        h2 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--deep-purple); border-left: 5px solid var(--emerald); padding-left: 20px; }
+        h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--deep-purple); }
+        .section { padding: 60px 0; border-bottom: 1px solid rgba(62, 42, 94, 0.08); }
+        .btn { display: inline-block; background-color: var(--emerald); color: white; font-weight: 600; padding: 12px 32px; border-radius: 40px; text-decoration: none; transition: 0.3s; box-shadow: 0 4px 10px rgba(15,123,110,0.2); }
+        .btn:hover { background-color: #0d655a; transform: translateY(-2px); }
+        .btn-outline { background: transparent; color: var(--emerald); border: 2px solid var(--emerald); }
+        .btn-outline:hover { background: var(--emerald); color: white; }
+        .hero { padding: 60px 0 40px; background: linear-gradient(135deg, #fdfaf5 0%, #f7efe5 100%); }
+        .hero-content { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px; }
+        .hero-text { flex: 1; }
+        .hero-text h1 { font-size: 3rem; line-height: 1.2; margin-bottom: 1.5rem; color: var(--deep-purple); }
+        .hero-text .accent { color: var(--emerald); }
+        .hero-sub { font-size: 1.2rem; color: #4a4a4a; margin-bottom: 2rem; max-width: 90%; }
+        .stats { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+        .stat { background: white; padding: 8px 18px; border-radius: 40px; font-weight: 500; box-shadow: 0 2px 6px rgba(0,0,0,0.02); }
+        .steps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 28px; margin-top: 30px; }
+        .step-card { background: white; border-radius: 24px; padding: 24px; box-shadow: 0 10px 20px rgba(0,0,0,0.02); border: 1px solid #f0e4d5; }
+        .step-num { background: var(--deep-purple); color: white; width: 40px; height: 40px; text-align: center; line-height: 40px; border-radius: 40px; margin-bottom: 16px; font-weight: 700; }
+        .price-card { background: white; border-radius: 32px; padding: 30px; text-align: center; box-shadow: 0 12px 30px rgba(0,0,0,0.05); border: 1px solid #e9dfd4; transition: 0.2s; height: 100%; display: flex; flex-direction: column; }
+        .price-card.popular { border-top: 5px solid var(--emerald); }
+        .price { font-size: 2.2rem; font-weight: 700; color: var(--deep-purple); margin: 20px 0; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+        .price .old-price { text-decoration: line-through; color: #a0a0a0; font-size: 1.8rem; font-weight: 400; }
+        .price .new-price { font-size: 1.8rem; font-weight: 700; color: var(--emerald); }
+        .feature-list { text-align: left; margin: 20px 0; list-style: none; padding-left: 0; flex-grow: 1; }
+        .feature-list li { margin-bottom: 10px; padding-left: 28px; position: relative; }
+        .feature-list li:before { content: "✓"; color: var(--emerald); position: absolute; left: 0; font-weight: bold; }
+        .flex-cols { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-top: 40px; }
+        .flex-cols > div { flex: 1; min-width: 260px; }
+        .testimonial { background: #ffffffdb; border-radius: 28px; padding: 24px; margin: 20px 0; border-left: 6px solid var(--emerald); }
+        .photo-placeholder { height: 260px; background: #f3efe9; border-radius: 24px; margin-top: 20px; display: flex; align-items: center; justify-content: center; color: #b9afa3; border: 1px dashed #cdc2b6; font-size: 0.9rem; }
+        .faq-item { background: white; border-radius: 20px; margin-bottom: 12px; padding: 18px 24px; border: 1px solid #efe2d6; }
+        .faq-question { font-weight: 700; font-size: 1.1rem; color: var(--deep-purple); margin-bottom: 8px; }
+        .footer-buttons { text-align: center; padding: 20px 0 40px; }
+        .button-group { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-top: 20px; }
+        .btn-social { min-width: 220px; }
+        .footer-cta { background: var(--deep-purple); color: white; text-align: center; padding: 50px 20px; border-radius: 48px 48px 0 0; margin-top: 40px; }
+        @media (max-width: 768px) { h1 { font-size: 2rem; } .hero-text h1 { font-size: 2rem; } .section { padding: 40px 0; } .price { flex-direction: column; gap: 8px; } }
+    </style>
+</head>
+<body>
+<div class="hero">
+    <div class="container hero-content">
+        <div class="hero-text">
+            <h1>Природные настройки<br><span class="accent">здоровья</span></h1>
+            <div class="hero-sub">Ваша личная система питания, энергии и легкости без диет и чувства вины.</div>
+            <a href="#tarifs" class="btn">👉 Выбрать тариф</a>
+            <div class="stats">
+                <div class="stat">✅ 6 пошаговых этапов</div>
+                <div class="stat">🎓 4+ года практики</div>
+                <div class="stat">🍃 Без жертв и запретов</div>
+                <div class="stat">🫱🏻 С поддержкой на каждом шаге</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Для кого -->
+    <div class="section">
+        <h2>Этот продукт для вас, если:</h2>
+        <div class="flex-cols">
+            <div style="background: white; padding: 24px; border-radius: 32px;">
+                <ul class="feature-list">
+                    <li>Вы знаете, что нужно есть, но не можете это применить в реальной жизни</li>
+                    <li>Вы устали от диет, срывов и чувства вины</li>
+                    <li>Нет энергии, проблемы с ЖКТ, сон не восстанавливает</li>
+                    <li>Вы хотите гибкую систему, которая работает в праздники и командировки</li>
+                    <li>Вы готовы уделять 20–30 минут в день на внедрение привычек</li>
+                </ul>
+            </div>
+            <div style="background: #f0ebe2; padding: 24px; border-radius: 32px;">
+                <h3 style="color:var(--emerald); margin-top:0;">а также, если вы:</h3>
+                <ul class="feature-list">
+                    <li>Уже обращались к врачам/нутрициологам, но результат нестабилен</li>
+                    <li>Чувствуете, что ресурса не хватает на семью, работу, хобби</li>
+                    <li>Хотите понять первопричины своих состояний, а не просто глушить симптомы</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Глобальный ИКР -->
+    <div class="section">
+        <h2>Что вы получите в итоге:</h2>
+        <div style="background: white; border-radius: 32px; padding: 30px; border:1px solid #efe2d6;">
+            <p style="font-size: 1.2rem; font-weight: 500;">✨ <strong style="color: var(--deep-purple);">Вашу личную систему питания и восстановления</strong>, которая работает в гостях, в командировке и даже в стрессовые дни.</p>
+            <p>Вы не запрещаете себе ничего, но остаётесь в комфортном весе и самочувствии. Просто живёте свою жизнь, в которую естественно встроены здоровые привычки, без зацикливания на ЗОЖ.</p>
+        </div>
+    </div>
+
+    <!-- 6 шагов -->
+    <div class="section">
+        <h2>6 шагов к природным настройкам</h2>
+        <div class="steps-grid">
+            <div class="step-card"><div class="step-num">1</div><h4>Сон, вода, баланс нервной системы</h4><p>Наводим порядок в базовых вещах. Учимся простым ритуалам, которые успокаивают нервную систему, налаживают сон, питьевой режим. Без заморочек.</p></div>
+            <div class="step-card"><div class="step-num">2</div><h4>Тарелка и кишечник</h4><p>Учимся собирать сбалансированный приём пищи за 5 минут. Без взвешиваний и сложных расчётов. Просто, понятно, вкусно. Параллельно разбираемся с кишечником: почему возникает вздутие, как кормить хорошие бактерии, как готовить так, чтобы ваша любимая еда приносила пользу и радость.</p></div>
+            <div class="step-card"><div class="step-num">3</div><h4>Покупки и этикетки</h4><p>Учимся выбирать продукты в магазине, читать этикетки за 1 взгляд, отличать полезное от мусора. Составляем меню из доступных продуктов, учимся делать полезные замены ингредиентов, чтобы спокойно готовить для всей семьи. Выбираем полезные десерты и убираем пищевой мусор из дома.</p></div>
+            <div class="step-card"><div class="step-num">4</div><h4>Умные заготовки</h4><p>Готовим 2 раза в месяц, экономя время и деньги и сохраняя тарелку и пользу. </p></div>
+            <div class="step-card"><div class="step-num">5</div><h4>Базовые БАДы</h4><p>Какие добавки реально нужны, схемы приёма без страха и переплат. Собираем свой список базовых БАД.</p></div>
+            <div class="step-card"><div class="step-num">6</div><h4>Антихрупкость</h4><p>Собираем сбалансированную тарелку в любых условиях (гости, ресторан, отель, самолёт), поддерживаем себя в авральной ситуации (пустой холодильник, цейтнот), а после возвращаемся к своей системе за 2–3 дня, не теряя результатов. Составляем готовый личный план, чтобы поддерживать здоровье самостоятельно и гибко адаптироваться к любым обстоятельствам.</p></div>
+        </div>
+    </div>
+
+    <!-- Тарифы -->
+    <div id="tarifs" class="section">
+        <h2>Выберите свой маршрут</h2>
+        <div class="flex-cols">
+            <div class="price-card">
+                <h3>Базовый модуль</h3>
+                <div class="price">
+                    <span class="old-price">7 900 ₽</span>
+                    <span class="new-price">5 900 ₽</span>
+                </div>
+                <p>3 недели – шаги 1–3</p>
+                <ul class="feature-list">
+                    <li>Сон, вода, нервная система</li>
+                    <li>Тарелка и кишечник</li>
+                    <li>Этикетки и полезные замены</li>
+                    <li>Чат поддержки, трекер привычек</li>
+                </ul>
+                <a href="#buy" class="btn">Занять место</a>
+            </div>
+            <div class="price-card">
+                <h3>Полный курс</h3>
+                <div class="price">
+                    <span class="old-price">16 900 ₽</span>
+                    <span class="new-price">12 900 ₽</span>
+                </div>
+                <p>7 недель – все 6 шагов</p>
+                <ul class="feature-list">
+                    <li>Всё из базового модуля</li>
+                    <li>Заготовки, БАДы, антихрупкость</li>
+                    <li>Финальная сборка личной системы здоровья</li>
+                </ul>
+                <a href="#buy" class="btn">Занять место</a>
+            </div>
+            <div class="price-card popular">
+                <h3>VIP сопровождение</h3>
+                <div class="price">
+                    <span class="new-price">25 900 ₽</span>
+                </div>
+                <p>Полный курс + личная поддержка (3 места)</p>
+                <ul class="feature-list">
+                    <li>Все материалы полного курса</li>
+                    <li>VIP-чат с ежедневной поддержкой</li>
+                    <li><strong>6 индивидуальных разборов</strong> (по одному на каждый модуль)</li>
+                </ul>
+                <a href="#buy" class="btn btn-outline">Занять место</a>
+            </div>
+        </div>
+        <p style="text-align:center; margin-top: 20px;">📌 Доступ к материалам и общему чату на всех тарифах – 3 месяца. Результат остаётся с вами навсегда.</p>
+    </div>
+
+    <!-- Чему научитесь -->
+    <div class="section">
+        <h2>Чему вы научитесь</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+            <span style="background: #f0ebe2; padding: 8px 18px; border-radius: 40px;">✅ Собирать сбалансированную тарелку за 5 минут дома, в гостях, в кафе или командировке без взвешиваний и других сложностей</span>
+            <span style="background: #f0ebe2; padding: 8px 18px; border-radius: 40px;">✅ Выбирать безопасные и вкусные продукты в магазине за 1 взгляд</span>
+            <span style="background: #f0ebe2; padding: 8px 18px; border-radius: 40px;">✅ Сделать свои любимые блюда полезными</span>
+            <span style="background: #f0ebe2; padding: 8px 18px; border-radius: 40px;">✅ Поймете принцип заготовок и сможете готовить 2 раза в месяц, а не каждый день.</span>
+            <span style="background: #f0ebe2; padding: 8px 18px; border-radius: 40px;">✅ В стрессовой ситуации использовать подходящие техники вместо автоматического заедания</span>
+            <span style="background: #f0ebe2; padding: 8px 18px; border-radius: 40px;">✅ Выбирать любые БАДы и применять схему базовых добавок, адаптированную под образ жизни</span>
+           <span style="background: #f0ebe2; padding: 8px 18px; border-radius: 40px;">✅ Адаптировать свою систему под любой аврал - праздник, отпуск, болезнь, командировка и т.д.</span>
+            <span style="background: #f0ebe2; padding: 8px 18px; border-radius: 40px;">✅ Поймете, почему нарушается сон, откуда берутся вздутия, проблемы с пищеварением и тяга к сладкому</span>
+            <span style="background: #f0ebe2; padding: 8px 18px; border-radius: 40px;">✅ Перестанете действовать наугад и чётко поймёте, зачем и что делать</span>
+            <span style="background: #f0ebe2; padding: 8px 18px; border-radius: 40px;">✅ Сможете поддерживать результат без контроля эксперта</span>
+        </div>
+    </div>
+
+    <!-- Отзывы -->
+    <div class="section">
+        <h2>Реальные результаты</h2>
+        <div class="testimonial">
+            <p>«Утром встаю, и у меня благодаря работе, которую мы сделали, нет желания налить просто кружку чая… По поводу вкусняшек – как их в жизнь вплетать, я уже поняла. И сейчас не так много их хочется, а во-вторых, по самочувствию чувствую разницу.»</p>
+            <div class="photo-placeholder">📸 Сюда будет вставлен скриншот (48.jpg)</div>
+        </div>
+
+        <div class="testimonial">
+            <p>«Эти маленькие шаги, которые мы делаем, потихонечку ведут к результату. У меня нормализуется цикл. Я начинаю контролировать себя во вторую фазу, стараюсь не вспылить. Я считаю, что при таком раскладе буду идти только вверх, к лучшему самочувствию. Уже многое намотала на ус, и может быть что-то ещё не делаю, но понимаю – делаю это осознанно. Поддаюсь соблазну, говорю – да, сейчас съем, потому что хочу себя побаловать, но это уже не привычка, как раньше.»</p>
+            <div class="photo-placeholder">📸 Сюда будет вставлен скриншот (49.jpg)</div>
+        </div>
+
+        <div class="testimonial">
+            <p>«Раньше я заказывала любимый лимонный тарт и ела его перед ужином в 4 часа с чаем. Сейчас я понимаю и ем более осознанно, выбираю белковые варианты, понимаю, зачем это нужно. Я понимаю, что нужно работать со стрессом. Эти осознания очень дорогого стоят. Запретов нет – это очень хорошо, потому что мозг сразу саботирует запреты. Будем продолжать работать и докручивать до индивидуальной нормы для меня»</p>
+            <div class="photo-placeholder">📸 Сюда будет вставлен скриншот (50.jpg)</div>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="section">
+        <h2>Частые вопросы</h2>
+        <div class="faq-item"><div class="faq-question">❓ Нет времени на сложные рецепты и изучение?</div><div>Программа построена на быстрых заготовках и простых приёмах. Короткие уроки (10–20 минут), минимум готовки, всё адаптировано под реальный ритм жизни. Вы не будете стоять у плиты часами.</div></div>
+        <div class="faq-item"><div class="faq-question">❓ Боюсь, что не справлюсь, сорвусь?</div><div>Мы идём маленькими шагами, без жёстких запретов. Поддержка группы и обратная связь помогут не бросать.</div></div>
+        <div class="faq-item"><div class="faq-question">❓ У меня уже всё есть в голове, зачем платить?</div><div>Знания без системы не работают. Вы получите не информацию, а чёткий алгоритм внедрения и готовые инструменты (списки, чек-листы), которые сэкономят годы проб.</div></div>
+        <div class="faq-item"><div class="faq-question">❓ Дорого?</div><div>Сравните с затратами на бесполезные БАДы, диетологов и врачей. Программа окупится экономией на ненужных продуктах и добавках. Здоровье – самая важная инвестиция.</div></div>
+        <div class="faq-item"><div class="faq-question">❓ Что, если после программы всё вернётся? Как сохранить результат?</div><div>Модуль «Антихрупкость» посвящён закреплению навыков. Вы уходите с готовым личным планом и доступом к материалам на 3 месяца.</div></div>
+        <div class="faq-item"><div class="faq-question">❓ Боюсь, что придётся покупать много дорогих БАДов</div><div>Базовый набор БАДов минимален и доступен. Мы разбираем, какие добавки действительно нужны, а от каких можно отказаться.</div></div>
+        <div class="faq-item"><div class="faq-question">❓ Что делать, если семья не поддерживает?</div><div>Даём приёмы, как постепенно встраивать полезные привычки без конфликтов. Многие участники успешно меняют рацион всей семьи.</div></div>
+        <div class="faq-item"><div class="faq-question">❓ А если мне нужна не группа, а индивидуальная работа?</div><div>Есть VIP-тариф с личными разборами и VIP-чатом.</div></div>
+        <div class="faq-item"><div class="faq-question">❓ У меня серьёзные заболевания (ЖКТ, щитовидка). Подойдёт?</div><div>Программа не заменяет лечение, но даёт инструменты для поддержки организма. Многие клиенты с хроническими проблемами успешно проходят курс.</div></div>
+        <div class="faq-item"><div class="faq-question">❓ Какие гарантии?</div><div>Даю все инструменты и материалы для результата. Итоговый результат зависит от действий участника – это обоюдный процесс.</div></div>
+    </div>
+
+    <!-- Сильные стороны -->
+    <div class="section">
+        <h2>Почему это работает</h2>
+        <div class="flex-cols">
+            <div><span style="font-size: 2rem;">🧠</span><h3 style="margin-top: 0;">Основа - физиология</h3><p>Сначала нервная система, вода и сон → потом питание и кишечник → затем БАДы и адаптация. Каждый шаг создаёт условие для следующего. Результат неизбежен для тех, кто четко идет по программе.</p><p>Более 5 лет практики, 50+ кейсов (в том числе стенозы, СПКЯ, аутоиммунные).</p></div>
+            <div><span style="font-size: 2rem;">🍃</span><h3 style="margin-top: 0;">Базовый модуль – фундамент</h3><p>Вы наладите сон, водный баланс, научитесь собирать тарелку, понимать кишечник и читать этикетки. Первые устойчивые результаты – энергия, лёгкость, спокойствие в еде.</p></div>
+            <div><span style="font-size: 2rem;">⚡</span><h3 style="margin-top: 0;">Полный курс – антихрупкость</h3><p>Заготовки, БАДы, стратегии на праздники и отпуск. Вы станете автономны и гибки – сможете возвращаться в строй после любого сбоя без чувства вины.</p><p>Никаких жёстких диет и запретов. Только гибкие инструменты, которые встраиваются в ваш ритм жизни.</p></div>
+        </div>
+        <p style="margin-top: 20px;">✅ Проверенные материалы – рецепты, чек-листы, списки покупок, схемы заготовок, которые экономят время и деньги.</p>
+        <div style="margin-top: 30px; background: #f0ebe2; border-radius: 32px; padding: 24px;">
+            <h3 style="color: var(--emerald);">VIP – максимальная поддержка</h3>
+            <p>Полный курс + VIP-чат с ежедневной поддержкой + 6 индивидуальных разборов (по каждому модулю). Это для тех, кто хочет докрутить результат до идеала и получить личное ведение по цене группы.</p>
+        </div>
+    </div>
+
+    <div class="footer-buttons">
+        <p style="margin-bottom: 16px; color: #4a4a4a;">Остались вопросы? Напишите, я лично отвечу.</p>
+        <div class="button-group">
+            <a href="https://t.me/irrinafrolova" class="btn btn-social">📱 Написать в Telegram</a>
+            <a href="https://vk.me/irina_frolova_sm" class="btn btn-outline btn-social">📘 Написать в VK</a>
+        </div>
+    </div>
+</div>
+
+<div class="footer-cta">
+    <h3 style="color: white;">Природные настройки здоровья</h3>
+    <p style="margin: 15px 0;">Ваша личная система без жертв и запретов</p>
+</div>
+</body>
+</html>
